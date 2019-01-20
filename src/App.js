@@ -1,25 +1,19 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { Button, Jumbotron } from "react-bootstrap";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+        <Jumbotron>
+          <h1>Flex diagram</h1>
           <p>
-            Edit <code>src/App.js</code> and save to reload.
+            This is a demo site to enable user to easily creat, store, search,
+            display the system architect diagram
           </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        </Jumbotron>
       </div>
     );
   }
