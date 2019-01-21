@@ -15,6 +15,11 @@ class App extends Component {
       "China-->Andrew: How are you?\n" +
       "Andrew->>China: I am good thanks!"
   };
+
+  editDslHandler = () => {
+    console.log("it is called");
+  };
+
   render() {
     return (
       <div className="App">
@@ -23,7 +28,10 @@ class App extends Component {
         <Grid>
           <Row className="show-grid">
             <Col md={6}>
-              <Pannel dsl={this.state.currentDSL} />
+              <Pannel
+                dsl={this.state.currentDSL}
+                onChange={this.editDslHandler}
+              />
             </Col>
             <Col md={6}>
               <Diagram dsl={this.state.currentDSL} />
