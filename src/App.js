@@ -13,13 +13,15 @@ class App extends Component {
       "Andrew->China: Says Hello\n" +
       "Note right of China: China thinks\\nabout it\n" +
       "China-->Andrew: How are you?\n" +
-      "Andrew->>China: I am good thanks!"
+      "Andrew->>China: I am good thanks!",
+    storedDSL: []
   };
 
-  editDslHandler = () => {
-    console.log("it is called");
+  editDslHandler = event => {
+    //console.log(event);
+    this.setState({ currentDSL: event.target.value });
   };
-
+  saveDslHandler = () => {};
   render() {
     return (
       <div className="App">
@@ -27,13 +29,13 @@ class App extends Component {
 
         <Grid>
           <Row className="show-grid">
-            <Col md={6}>
+            <Col md={4}>
               <Pannel
                 dsl={this.state.currentDSL}
-                onChange={this.editDslHandler}
+                changed={this.editDslHandler}
               />
             </Col>
-            <Col md={6}>
+            <Col md={8}>
               <Diagram dsl={this.state.currentDSL} />
             </Col>
           </Row>
