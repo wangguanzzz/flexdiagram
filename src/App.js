@@ -1,33 +1,20 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import Banner from "./components/Banner/Banner";
-import {
-  Button,
-  Grid,
-  Row,
-  Col,
-  FormGroup,
-  FormControl,
-  ControlLabel
-} from "react-bootstrap";
-import SequenceDiagram from "react-sequence-diagram";
+import Pannel from "./components/Pannel/Pannel";
+import Diagram from "./components/Diagram/Diagram";
 
-const input =
-  "Andrew->China: Says Hello\n" +
-  "Note right of China: China thinks\\nabout it\n" +
-  "China-->Andrew: How are you?\n" +
-  "Andrew->>China: I am good thanks!";
-
-const options = {
-  theme: "simple"
-};
-
-function onError(error) {
-  console.log(error);
-}
+import { Grid, Row, Col } from "react-bootstrap";
 
 class App extends Component {
+  state = {
+    diagram_options: { theme: "simple" },
+    currentDSL:
+      "Andrew->China: Says Hello\n" +
+      "Note right of China: China thinks\\nabout it\n" +
+      "China-->Andrew: How are you?\n" +
+      "Andrew->>China: I am good thanks!"
+  };
   render() {
     return (
       <div className="App">
@@ -36,20 +23,10 @@ class App extends Component {
         <Grid>
           <Row className="show-grid">
             <Col md={6}>
-              <form>
-                <FormGroup>
-                  <ControlLabel>Diagram DSL</ControlLabel>
-                  <FormControl componentClass="textarea" rows="5" />
-                </FormGroup>
-              </form>
+              <Pannel dsl={this.state.currentDSL} />
             </Col>
             <Col md={6}>
-              <SequenceDiagram
-                col-md-6
-                input={input}
-                options={options}
-                onError={onError}
-              />
+              <Diagram dsl={this.state.currentDSL} />
             </Col>
           </Row>
         </Grid>
