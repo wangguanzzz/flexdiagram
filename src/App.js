@@ -3,8 +3,7 @@ import "./App.css";
 import Banner from "./components/Banner/Banner";
 import Pannel from "./components/Pannel/Pannel";
 import Diagram from "./components/Diagram/Diagram";
-
-import { Grid, Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "reactstrap";
 
 class App extends Component {
   state = {
@@ -25,21 +24,20 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Banner />
-
-        <Grid>
-          <Row className="show-grid">
-            <Col md={4}>
+        <Container>
+          <Banner />
+          <Row>
+            <Col md="4">
               <Pannel
                 dsl={this.state.currentDSL}
                 changed={this.editDslHandler}
               />
             </Col>
-            <Col md={8}>
+            <Col md="8">
               <Diagram dsl={this.state.currentDSL} />
             </Col>
           </Row>
-        </Grid>
+        </Container>
       </div>
     );
   }
